@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { calculateTimeLeft } from './calculate-time-left';
 	import { COUNTDOWN_DATE } from './constants';
 	import Digit from './Digit.svelte';
 
@@ -7,19 +8,11 @@
 		hours: number;
 		minutes: number;
 		seconds: number;
-	}>();
+	}>(calculateTimeLeft(COUNTDOWN_DATE));
 
 	$effect(() => {
 		const interval = setInterval(() => {
-			const now = new Date().getTime();
-			const distance = COUNTDOWN_DATE.getTime() - now;
-
-			state = {
-				days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-				hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-				minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-				seconds: Math.floor((distance % (1000 * 60)) / 1000)
-			};
+			state = calculateTimeLeft(COUNTDOWN_DATE);
 		}, 1000);
 
 		return () => clearInterval(interval);
