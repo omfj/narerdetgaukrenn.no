@@ -1,18 +1,23 @@
 <script lang="ts">
-	import { calculateTimeLeft } from './calculate-time-left';
-	import { COUNTDOWN_DATE } from './constants';
+	import { calculateTimeLeft } from '../calculate-time-left';
 	import Digit from './Digit.svelte';
+
+	type Props = {
+		date: Date;
+	};
+
+	let { date }: Props = $props();
 
 	let state = $state<{
 		days: number;
 		hours: number;
 		minutes: number;
 		seconds: number;
-	}>(calculateTimeLeft(COUNTDOWN_DATE));
+	}>(calculateTimeLeft(date));
 
 	$effect(() => {
 		const interval = setInterval(() => {
-			state = calculateTimeLeft(COUNTDOWN_DATE);
+			state = calculateTimeLeft(date);
 		}, 1000);
 
 		return () => clearInterval(interval);
