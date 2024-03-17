@@ -4,7 +4,19 @@
 	import { COUNTDOWN_DATE } from '$lib/constants';
 	import Snowfall from '$lib/components/Snowfall.svelte';
 
-	const isPast = new Date() > COUNTDOWN_DATE;
+	const checkIsPast = () => {
+		return new Date() > COUNTDOWN_DATE;
+	};
+
+	let isPast = $state(checkIsPast());
+
+	$effect(() => {
+		const interval = setInterval(() => {
+			isPast = checkIsPast();
+		}, 1000);
+
+		return () => clearInterval(interval);
+	});
 </script>
 
 <div class="flex flex-col justify-center bg-blue-200 min-h-screen items-center">
