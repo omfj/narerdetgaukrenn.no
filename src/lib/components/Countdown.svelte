@@ -57,12 +57,14 @@
 	</div>
 
 	<div class="py-4">
-		{@render sep('eller')}
-		<Counter {date} map={millisecondsUntil} unit="millisekunder" interval={1} />
-		{@render sep('som er')}
-		<Counter {date} map={secondsUntil} unit="sekunder" interval={1000} />
-		{@render sep('samme som')}
-		<Counter {date} map={(date) => hoursUntil(date)} unit="timer" interval={1000 * 60 * 60} />
+		<div class="hidden md:block">
+			{@render sep('eller')}
+			<Counter {date} map={millisecondsUntil} unit="millisekunder" interval={1} />
+			{@render sep('som er')}
+			<Counter {date} map={secondsUntil} unit="sekunder" interval={1000} />
+			{@render sep('samme som')}
+			<Counter {date} map={(date) => hoursUntil(date)} unit="timer" interval={1000 * 60 * 60} />
+		</div>
 	</div>
 
 	<p class="text-3xl md:text-5xl font-bold text-center">Vi sees!</p>

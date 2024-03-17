@@ -19,6 +19,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Når er det gaukrenn?</title>
+</svelte:head>
+
 <div class="flex flex-col justify-center bg-blue-200 min-h-screen items-center">
 	<div
 		class="py-16 px-4 md:p-16 md:rounded-3xl text-gray-700 w-full md:w-fit border-y-8 md:border-8 overflow-hidden shadow-2xl border-gray-700 bg-white"
