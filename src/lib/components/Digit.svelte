@@ -5,34 +5,20 @@
 		digit: string;
 	};
 
-	let { digit }: Props = $props();
+	const { digit }: Props = $props();
 
-	let delay = 200;
-	let duration = 200;
+	const delay = 200;
+	const duration = 200;
 </script>
 
-<div class="digit-wrapper">
+<div class="relative w-[1ch] h-[1ch]">
 	{#key digit}
-		<span class="digit" in:fly={{ delay, duration, y: '-1em' }} out:fly={{ duration, y: '1em' }}>
+		<span
+			class="w-full absolute flex items-center justify-center"
+			in:fly={{ delay, duration, y: '-1em' }}
+			out:fly={{ duration, y: '1em' }}
+		>
 			{digit}
 		</span>
 	{/key}
 </div>
-
-<style>
-	.digit-wrapper {
-		position: relative;
-		width: 1ch; /* Adjust the width as necessary */
-		display: inline-block; /* Keeps the flow inline but allows for width and height */
-	}
-
-	.digit {
-		position: absolute;
-		top: 0;
-		left: 50%; /* Centers the digit horizontally */
-		transform: translateX(-50%); /* Adjusts for the centering */
-		display: inline-flex;
-		justify-content: center;
-		width: 100%;
-	}
-</style>
