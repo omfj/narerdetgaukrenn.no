@@ -81,5 +81,6 @@
 		width: 100%;
 		height: 100%;
 		z-index: 20;
+		pointer-events: none;
 	}
 </style>
