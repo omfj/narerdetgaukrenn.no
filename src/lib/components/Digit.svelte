@@ -7,7 +7,6 @@
 
 	const { digit }: Props = $props();
 
-	const delay = 200;
 	const duration = 200;
 </script>
 
@@ -15,7 +14,7 @@
 	{#key digit}
 		<span
 			class="w-full absolute flex items-center justify-center"
-			in:fly={{ delay, duration, y: '-1em' }}
+			in:fly={{ duration, y: '-1em' }}
 			out:fly={{ duration, y: '1em' }}
 		>
 			{digit}

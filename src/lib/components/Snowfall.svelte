@@ -55,13 +55,18 @@
 
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
+	});
 
-		for (let i = 0; i < 5; i++) {
-			const flake = createFlake();
-			if (!flake) return;
-			flakes.push(flake);
-		}
+	$effect(() => {
+		if (!canvas) return;
 
+		flakes = Array.from({ length: 200 })
+			.fill(null)
+			.map(createFlake)
+			.filter(Boolean) as Array<Flake>;
+	});
+
+	$effect(() => {
 		const interval = setInterval(() => {
 			updateFlakes();
 			drawFlakes();
