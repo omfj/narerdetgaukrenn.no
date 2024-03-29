@@ -14,7 +14,7 @@
 	let sortedTeams = $derived(teams.toSorted((a, b) => b.score - a.score));
 </script>
 
-<div class="flex flex-col justify-center bg-blue-200 min-h-screen items-center px-4">
+<div class="flex flex-col justify-center bg-blue-200 min-h-screen items-center">
 	<main
 		class="py-16 px-4 relative md:p-16 md:rounded-3xl max-w-4xl text-gray-700 w-full border-y-8 md:border-8 overflow-hidden shadow-2xl border-gray-700 bg-white"
 	>
@@ -41,8 +41,16 @@
 				</tbody>
 			</table>
 		</div>
-		<img src="/chicken.png" alt="Gaukrenn" class="absolute top-8 right-5 w-24 animate-bounce" />
-		<img src="/chicken.png" alt="Gaukrenn" class="absolute top-8 left-5 w-24 animate-bounce" />
+		<img
+			src="/chicken.png"
+			alt="Gaukrenn"
+			class="absolute top-8 right-5 w-24 animate-bounce hidden md:block"
+		/>
+		<img
+			src="/chicken.png"
+			alt="Gaukrenn"
+			class="absolute top-8 left-5 w-24 animate-bounce hidden md:block"
+		/>
 	</main>
 </div>
 
