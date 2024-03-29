@@ -57,7 +57,7 @@
 	</div>
 
 	<div class="py-4">
-		<div class="hidden md:block">
+		<div>
 			{@render sep('eller')}
 			<Counter {date} map={millisecondsUntil} unit="millisekunder" interval={1} />
 			{@render sep('som er')}
