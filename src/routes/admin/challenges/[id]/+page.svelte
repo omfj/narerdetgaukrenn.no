@@ -21,6 +21,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Administrer {data.challenge.name} - Gaukrenn 2024</title>
+</svelte:head>
+
 <main class="px-4 py-10 max-w-3xl mx-auto space-y-8">
 	<h1 class="text-3xl mb-16 font-bold">Konkurranse: {data.challenge.name}</h1>
 

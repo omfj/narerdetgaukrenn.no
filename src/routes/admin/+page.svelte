@@ -42,6 +42,11 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Adminpanel - Gaukrenn 2024</title>
+	<meta name="description" content="Adminpanel for Gaukrenn 2024" />
+</svelte:head>
+
 <main class="px-4 py-10 max-w-3xl mx-auto space-y-8">
 	<h1 class="text-4xl mb-16 font-bold uppercase">Adminpanel</h1>
 
