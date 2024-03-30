@@ -31,6 +31,11 @@
 
 		{#if isPast}
 			<p class="text-7xl text-center mt-4">Gaukrennet har begynt!</p>
+			<p class="text-center mt-8">
+				<a class="text-3xl font-medium text-blue-500 hover:underline" href="/leaderboard"
+					>Til ledertavla!</a
+				>
+			</p>
 			<div
 				style="
  position: fixed;
