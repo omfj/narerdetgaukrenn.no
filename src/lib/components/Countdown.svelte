@@ -29,12 +29,12 @@
 		return () => clearInterval(interval);
 	});
 
-	const digitsDays = $derived(state?.days.toString().padStart(2, '0').split(''));
+	// const digitsDays = $derived(state?.days.toString().padStart(2, '0').split(''));
 	const digitsHours = $derived(state?.hours.toString().padStart(2, '0').split(''));
 	const digitsMinutes = $derived(state?.minutes.toString().padStart(2, '0').split(''));
 	const digitsSeconds = $derived(state?.seconds.toString().padStart(2, '0').split(''));
 
-	const digits = $derived([digitsDays, digitsHours, digitsMinutes, digitsSeconds].flat());
+	const digits = $derived([digitsHours, digitsMinutes, digitsSeconds].flat());
 </script>
 
 {#snippet sep(text: string)}
@@ -45,7 +45,7 @@
 	</div>
 {/snippet}
 
-<div class="mt-8">
+<div class="mt-8 space-y-8">
 	<div class="text-5xl sm:text-8xl md:text-9xl flex justify-center items-center">
 		{#each digits as digit, i}
 			<Digit {digit} />
@@ -56,7 +56,7 @@
 		{/each}
 	</div>
 
-	<div class="py-4">
+	{#if state.days > 0}
 		<div>
 			{@render sep('eller')}
 			<Counter {date} map={millisecondsUntil} unit="millisekunder" interval={1} />
@@ -65,7 +65,7 @@
 			{@render sep('samme som')}
 			<Counter {date} map={(date) => hoursUntil(date)} unit="timer" interval={1000 * 60 * 60} />
 		</div>
-	</div>
+	{/if}
 
 	<p class="text-3xl md:text-5xl font-bold text-center">Vi sees!</p>
 </div>
