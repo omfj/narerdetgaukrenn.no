@@ -1,29 +1,43 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	type Flake = {
 		x: number;
 		y: number;
 		speed: number;
 		size: number;
+		color: string;
 	};
 
 	let canvas = $state<HTMLCanvasElement>();
 	let ctx = $state<CanvasRenderingContext2D | null>(null);
 	let flakes = $state<Array<Flake>>([]);
 
-	function createFlake() {
+	const generateColor = () => {
+		const getRandomHexValue = (min: number, max: number) => {
+			return Math.floor(Math.random() * (max - min + 1) + min)
+				.toString(16)
+				.padStart(2, '0');
+		};
+
+		const red = getRandomHexValue(230, 255);
+		const green = getRandomHexValue(230, 255);
+		const blue = getRandomHexValue(230, 255);
+
+		return `#${red}${green}${blue}`;
+	};
+
+	const createFlake = () => {
 		if (!canvas) return;
 
 		return {
 			x: Math.random() * canvas.width,
 			y: -10,
 			speed: Math.random() * 5 + 2,
-			size: Math.random() * 6 + 2
+			size: Math.random() * 6 + 3,
+			color: generateColor()
 		};
-	}
+	};
 
-	function updateFlakes() {
+	const updateFlakes = () => {
 		if (!canvas) return;
 
 		flakes = flakes.map((flake) => {
@@ -34,19 +48,19 @@
 			}
 			return flake;
 		});
-	}
+	};
 
-	function drawFlakes() {
+	const drawFlakes = () => {
 		if (!canvas || !ctx) return;
 
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		flakes.forEach((flake) => {
 			ctx!.beginPath();
 			ctx!.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
-			ctx!.fillStyle = '#fff';
+			ctx!.fillStyle = flake.color;
 			ctx!.fill();
 		});
-	}
+	};
 
 	$effect(() => {
 		if (!canvas) return;

@@ -76,7 +76,7 @@ const setScore = async (teamId: string, challengeId: string, score: number) => {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({ score })
-	}).then((res) => res.status === 200);
+	}).then((res) => res.json() as Promise<{ score: number }>);
 };
 
 const getScoreByChallenge = async (teamId: string, challengeId: string) => {

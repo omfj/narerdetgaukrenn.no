@@ -19,9 +19,11 @@
 	<meta name="description" content="Ledertavle for Gaukrenn 2024" />
 </svelte:head>
 
-<div class="flex flex-col justify-center bg-blue-200 min-h-screen items-center">
+<div
+	class="flex flex-col justify-center bg-gradient-to-b from-blue-300 to-blue-100 min-h-screen items-center"
+>
 	<main
-		class="py-16 px-4 relative md:p-16 md:rounded-3xl max-w-4xl text-gray-700 w-full border-y-8 md:border-8 overflow-hidden shadow-2xl border-gray-700 bg-white"
+		class="py-16 px-4 relative z-50 md:p-16 md:rounded-3xl max-w-4xl text-gray-700 w-full border-y-8 md:border-8 overflow-hidden shadow-2xl border-gray-700 bg-white"
 	>
 		<h1 class="text-6xl text-center mb-16 font-bold uppercase">Gaukrenn 2024</h1>
 
